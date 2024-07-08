@@ -1,7 +1,10 @@
 from pymongo import MongoClient
 
+# Reemplaza los valores de la URI con los correctos
+uri = "mongodb+srv://ConexionMdb:12345@primercluster.e3mfhgr.mongodb.net/?retryWrites=true&w=majority&appName=PrimerCluster"
+
 # Conexión a MongoDB Atlas
-client = MongoClient("mongodb+srv://ConexionMdb:12345@primercluster.e3mfhgr.mongodb.net/?retryWrites=true&w=majority&appName=PrimerCluster")
+client = MongoClient(uri)
 
 # Crear una base de datos
 db = client['provincias_dominicanas']
@@ -48,13 +51,13 @@ provincias = [
 # Insertar las provincias en la colección
 collection.insert_many(provincias)
 
-print("Provincias insertadas exitosamente")
+print("Provincias insertadas Con exito")
 
 # Consultar todas las provincias
 provincias = collection.find()
 
 # Imprimir las provincias
+print("Listado de Provincias de la República Dominicana:")
 for provincia in provincias:
     print(provincia)
-
 
